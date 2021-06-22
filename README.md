@@ -1,6 +1,6 @@
 # react-native-dynamic-load
 
-react-native dynamic load bundle from remote;(React Native 分包加载)
+react-native dynamic load bundle from remote;(单例模式 React Native 分包加载)
 
 ## Support
 
