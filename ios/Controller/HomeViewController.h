@@ -2,7 +2,7 @@
 //  HomeViewController.h
 //  ReactNativeDynamic
 //
-//  Created by alexganggao on 2021/6/22.
+//  Created by mrgaogang on 2021/6/22.
 //
 
 #import <UIKit/UIKit.h>

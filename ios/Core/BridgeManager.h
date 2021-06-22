@@ -2,7 +2,7 @@
 //  BridgeManager.h
 //  ReactNativeDynamic
 //
-//  Created by alexganggao on 2021/6/22.
+//  Created by mrgaogang on 2021/6/22.
 //
 
 #import <Foundation/Foundation.h>
