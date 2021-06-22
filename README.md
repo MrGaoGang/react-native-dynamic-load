@@ -45,7 +45,7 @@ function processModuleFilter(type) {
 
 ### iOS 客户端动态加载
 
-```oc
+```objc
 // 在应用启动的时候加载 jsbundle 基础包
 [BridgeManager.instance loadBaseBundleWithLaunchOptions:launchOptions];
 
