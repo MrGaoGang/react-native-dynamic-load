@@ -1,0 +1,32 @@
+{
+  "name": "ReactNativeDynamic",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "build:base:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output dist/base/base.ios.bundle --assets-dest dist/base --config metro.base.config.js",
+    "build:bus:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output dist/business/buss.ios.bundle --assets-dest dist/business --config metro.business.config.js",
+    "build:ios": "npm run build:base:ios && npm run build:bus:ios",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "17.0.1",
+    "react-native": "0.64.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/runtime": "^7.14.6",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "babel-jest": "^27.0.2",
+    "eslint": "^7.29.0",
+    "jest": "^27.0.4",
+    "metro-react-native-babel-preset": "^0.66.0",
+    "react-test-renderer": "17.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
