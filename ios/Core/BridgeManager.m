@@ -31,17 +31,17 @@
 
 - (void)initManager {
   // success listener
-    [[NSNotificationCenter defaultCenter]
-        addObserver:self
-           selector:@selector(onJSDidLoad:)
-               name:RCTJavaScriptDidLoadNotification
-             object:nil];
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(onJSDidLoad:)
+   name:RCTJavaScriptDidLoadNotification
+   object:nil];
   // error listener
-    [[NSNotificationCenter defaultCenter]
-        addObserver:self
-           selector:@selector(onJSLoadError:)
-               name:RCTJavaScriptDidFailToLoadNotification
-             object:nil];
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(onJSLoadError:)
+   name:RCTJavaScriptDidFailToLoadNotification
+   object:nil];
 
   self.pendingQueue = [[NSMutableArray alloc] initWithCapacity:1];
 }
@@ -81,37 +81,43 @@
   if (self.loadedScripts == nil) {
     self.loadedScripts = [NSMutableArray array];
   }
-  if ([self.loadedScripts indexOfObject:moduleName] == NSNotFound) {
-    [self.loadedScripts addObject:moduleName];
 
-    NSString *jsCodeLocationBuz =
-        [[NSBundle mainBundle] URLForResource:path withExtension:@"bundle"]
-            .path;
-    NSError *error = nil;
-    NSData *sourceBuz = [NSData dataWithContentsOfFile:jsCodeLocationBuz
-                                               options:NSDataReadingMappedIfSafe
-                                                 error:&error];
+  NSString *jsCodeLocationBuz =
+  [[NSBundle mainBundle] URLForResource:path withExtension:@"bundle"]
+  .path;
+  NSError *error = nil;
+  // you can replace to you own file location
+  NSData *sourceBuz = [NSData dataWithContentsOfFile:jsCodeLocationBuz
+                                             options:NSDataReadingMappedIfSafe
+                                               error:&error];
 
-    if (error == nil) {
-      RNBusinessLoadCallback blk = ^(BOOL successed) {
-        if (successed) {
+  if (error == nil) { // load source success
+    RNBusinessLoadCallback blk = ^(BOOL successed) {
+      if (successed) {
+        if ([self.loadedScripts indexOfObject:moduleName] == NSNotFound) {
+          [self.loadedScripts addObject:moduleName];
           [self.commonBridge.batchedBridge executeSourceCode:sourceBuz sync:NO];
-          callback(YES);
-        } else {
-          callback(successed);
+        }else{
+          // has loaded
+          NSLog(@"bundle %@ has loaded",path);
         }
-      };
+        callback(YES);
 
-      if (self.commonStatus == RNBundleLoadedStatus_Successed) {
-        blk(YES);
-      } else { // wait for base bundle load success
-        [self.pendingQueue addObject:blk];
+      } else {
+        callback(successed);
       }
-    } else {
-      callback(NO);
+    };
+
+    if (self.commonStatus == RNBundleLoadedStatus_Successed) {
+      blk(YES);
+    } else { // wait for base bundle load success
+      [self.pendingQueue addObject:blk];
     }
-    return;
+  } else {
+    callback(NO);
   }
+
+
 }
 
 - (void)loadScriptWithBridge:(RCTBridge *)bridge
@@ -145,11 +151,11 @@
     retry--;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC),
                    dispatch_get_main_queue(), ^{
-                     [self.commonBridge reload];
-                   });
+      [self.commonBridge reload];
+    });
   } else {
     self.commonStatus =
-        error ? RNBundleLoadStatus_Failed : RNBundleLoadedStatus_Successed;
+    error ? RNBundleLoadStatus_Failed : RNBundleLoadedStatus_Successed;
     [self _processPendingQueue];
   }
 }
@@ -172,15 +178,15 @@
   [RCTJavaScriptLoader loadBundleAtURL:[self sourceURLForBridge:bridge]
                             onProgress:onProgress
                             onComplete:^(NSError *error, RCTSource *source) {
-                              NSLog(@"common lib src did load, error:%@",
-                                    error.localizedDescription);
-                              loadCallback(error, source);
-                              [weakSelf _baseBundleLoad:error];
-                            }];
+    NSLog(@"common lib src did load, error:%@",
+          error.localizedDescription);
+    loadCallback(error, source);
+    [weakSelf _baseBundleLoad:error];
+  }];
 }
 
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

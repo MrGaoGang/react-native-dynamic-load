@@ -17,7 +17,6 @@
 		D7A147242681C7E300B61413 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A147232681C7E300B61413 /* HomeViewController.m */; };
 		D7A147332681C92C00B61413 /* base.ios.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7A147322681C92C00B61413 /* base.ios.bundle */; };
 		D7A147372681C93500B61413 /* buss.ios.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7A147362681C93500B61413 /* buss.ios.bundle */; };
-		D7A1480D2681E99A00B61413 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D7A1480C2681E99A00B61413 /* assets */; };
 		DEC3DB603D7F22CA2CBE6559 /* libPods-ReactNativeDynamic-ReactNativeDynamicTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A17144CA0FB2876ABF214214 /* libPods-ReactNativeDynamic-ReactNativeDynamicTests.a */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +52,6 @@
 		D7A147232681C7E300B61413 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D7A147322681C92C00B61413 /* base.ios.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base.ios.bundle; path = ../dist/base/base.ios.bundle; sourceTree = "<group>"; };
 		D7A147362681C93500B61413 /* buss.ios.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = buss.ios.bundle; path = ../dist/business/buss.ios.bundle; sourceTree = "<group>"; };
-		D7A1480C2681E99A00B61413 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F326745797323A364309741F /* Pods-ReactNativeDynamic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeDynamic.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeDynamic/Pods-ReactNativeDynamic.release.xcconfig"; sourceTree = "<group>"; };
 		F6C606E1F1ED4ECB83A3C77D /* libPods-ReactNativeDynamic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeDynamic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,7 +184,6 @@
 		D7A147272681C91700B61413 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D7A1480C2681E99A00B61413 /* assets */,
 				D7A147322681C92C00B61413 /* base.ios.bundle */,
 				D7A147362681C93500B61413 /* buss.ios.bundle */,
 			);
@@ -287,7 +284,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A1480D2681E99A00B61413 /* assets in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				D7A147372681C93500B61413 /* buss.ios.bundle in Resources */,
