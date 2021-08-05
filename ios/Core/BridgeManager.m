@@ -163,7 +163,7 @@
 #pragma mark - RCTBridgeDelegate
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
-  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"base.ios"
+  NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"common.ios"
                                                          ofType:@"bundle"];
   return [NSURL fileURLWithPath:bundlePath];
 }

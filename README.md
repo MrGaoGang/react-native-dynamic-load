@@ -52,7 +52,7 @@ function processModuleFilter(type) {
 // 在需要的时候加载业务包
 // 此处只是使用加载本地的bundle的方式，如果是在线的方式，可以先使用http下载然后加载本地
 [BridgeManager.instance
-    loadBusinessBundle:@"buss.ios"
+    loadBusinessBundle:@"business.ios"
             moduleName:@"ReactNativeDynamic"
               callback:^(BOOL succeed) {
                 if (succeed) {
@@ -64,4 +64,28 @@ function processModuleFilter(type) {
                 }
   NSLog(@"%d",succeed);
               }];
+```
+
+### Android 客户端动态加载
+
+```java
+// 应用启动的时候
+SoLoader.init(this, /* native exopackage */ false);
+ReactAppRuntime.init(this);
+
+// 你的activity
+public class MainActivity  extends AsyncReactActivity {
+
+  @Override
+  protected RnBundle getBundle(){
+    RnBundle bundle = new RnBundle();
+    bundle.scriptType = ScriptType.ASSET;
+    bundle.scriptPath = "business.android.bundle";
+    bundle.scriptUrl = "business.android.bundle";
+    bundle.appName = "ReactNativeDynamic";
+    return bundle;
+  }
+}
+
+
 ```

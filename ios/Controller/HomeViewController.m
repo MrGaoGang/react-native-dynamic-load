@@ -19,19 +19,18 @@
   [super viewDidLoad];
   // 此处只是使用加载本地的bundle的方式，如果是在线的方式，可以先使用http下载然后加载本地
   [BridgeManager.instance
-   loadBusinessBundle:@"buss.ios"
-   moduleName:@"ReactNativeDynamic"
-   callback:^(BOOL succeed) {
-    if (succeed) {
-      RCTRootView *rootView = [[RCTRootView alloc]
-                               initWithBridge:BridgeManager.instance.commonBridge
+      loadBusinessBundle:@"business.ios"
+              moduleName:@"ReactNativeDynamic"
+                callback:^(BOOL succeed) {
+                  if (succeed) {
+                    RCTRootView *rootView = [[RCTRootView alloc]
+                           initWithBridge:BridgeManager.instance.commonBridge
                                moduleName:@"ReactNativeDynamic"
-                               initialProperties:nil];
-      self.view = rootView;
-    }
-    NSLog(@"%d",succeed);
-  }];
-
+                        initialProperties:nil];
+                    self.view = rootView;
+                  }
+                  NSLog(@"%d", succeed);
+                }];
 }
 
 /*

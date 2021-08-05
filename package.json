@@ -6,13 +6,17 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "build:base:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output dist/base/base.ios.bundle --assets-dest dist/base --config metro.base.config.js",
-    "build:bus:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output dist/business/buss.ios.bundle --assets-dest dist/business --config metro.business.config.js",
+    "build:base:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output dist/base/common.ios.bundle --assets-dest dist/base --config metro.base.config.js",
+    "build:bus:ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output dist/business/business.ios.bundle --assets-dest dist/business --config metro.business.config.js",
     "build:ios": "npm run build:base:ios && npm run build:bus:ios",
+    "build:base:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/common.android.bundle --assets-dest android/app/src/main/assets --config metro.base.config.js",
+    "build:bus:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/business.android.bundle --assets-dest android/app/src/main/assets --config metro.business.config.js",
+    "build:android": " npm run build:base:android && npm run build:bus:android",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "react": "17.0.1",
     "react-native": "0.64.2"
   },

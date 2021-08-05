@@ -1,15 +1,18 @@
 package com.reactnativedynamic;
 
-import com.facebook.react.ReactActivity;
+import com.reactnativedynamic.core.AsyncReactActivity;
+import com.reactnativedynamic.core.model.RnBundle;
 
-public class MainActivity extends ReactActivity {
 
-  /**
-   * Returns the name of the main component registered from JavaScript. This is used to schedule
-   * rendering of the component.
-   */
+public class MainActivity  extends AsyncReactActivity {
+
   @Override
-  protected String getMainComponentName() {
-    return "ReactNativeDynamic";
+  protected RnBundle getBundle(){
+    RnBundle bundle = new RnBundle();
+    bundle.scriptType = ScriptType.ASSET;
+    bundle.scriptPath = "business.android.bundle";
+    bundle.scriptUrl = "business.android.bundle";
+    bundle.appName = "ReactNativeDynamic";
+    return bundle;
   }
 }
