@@ -1,6 +1,6 @@
 package com.reactnativedynamic.core.model;
 
-import com.reactnativedynamic.core.AsyncReactActivity;
+import com.reactnativedynamic.core.DynamicReactActivity;
 
 /***
  * 加载rn bundle的信息
@@ -13,7 +13,7 @@ public class RnBundle {
     /**
      *  网络，文件还是assets
      */
-    public AsyncReactActivity.ScriptType scriptType;
+    public DynamicReactActivity.ScriptType scriptType;
     /***
      * 必须传递的，不管是网络，文件还是assets，都需要传递脚本url
      */

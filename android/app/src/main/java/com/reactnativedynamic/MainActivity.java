@@ -1,10 +1,10 @@
 package com.reactnativedynamic;
 
-import com.reactnativedynamic.core.AsyncReactActivity;
+import com.reactnativedynamic.core.DynamicReactActivity;
 import com.reactnativedynamic.core.model.RnBundle;
 
 
-public class MainActivity  extends AsyncReactActivity {
+public class MainActivity  extends DynamicReactActivity {
 
   @Override
   protected RnBundle getBundle(){

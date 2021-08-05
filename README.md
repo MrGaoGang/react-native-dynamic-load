@@ -74,7 +74,7 @@ SoLoader.init(this, /* native exopackage */ false);
 ReactAppRuntime.init(this);
 
 // 你的activity
-public class MainActivity  extends AsyncReactActivity {
+public class MainActivity  extends DynamicReactActivity {
 
   @Override
   protected RnBundle getBundle(){

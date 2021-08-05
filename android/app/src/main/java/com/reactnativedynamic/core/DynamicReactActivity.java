@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
 /**
  * 异步加载业务bundle的activity
  */
-public abstract class AsyncReactActivity extends androidx.fragment.app.FragmentActivity
+public abstract class DynamicReactActivity extends androidx.fragment.app.FragmentActivity
         implements DefaultHardwareBackBtnHandler, PermissionAwareActivity {
 
     public enum ScriptType {ASSET, FILE, NETWORK}
@@ -49,7 +49,7 @@ public abstract class AsyncReactActivity extends androidx.fragment.app.FragmentA
     protected boolean bundleLoaded = false;
     private AlertDialog mProgressDialog;
 
-    protected AsyncReactActivity() {
+    protected DynamicReactActivity() {
         mDelegate = createReactActivityDelegate();
     }
 
