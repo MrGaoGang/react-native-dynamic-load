@@ -11,7 +11,7 @@ react-native dynamic load bundle from remote;(单例模式 React Native 分包�
 
 ### 分包
 
-将自己需要打入到公共包里面的模块，填写到`common-entry.js`中;
+如何进行分包？点击[ReactNative 分包方案介绍](https://blog.gaogangsever.cn/react/RNSDK%E5%8D%87%E7%BA%A7%E5%8F%8A%E5%88%86%E5%8C%85%E6%96%B9%E6%A1%88.html#%E9%97%AE%E9%A2%98-1-rn-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%88%86%E5%8C%85)
 
 ```bash
 
