@@ -1,9 +1,12 @@
-const metroCfg = require('./metro-base');
+const {
+  createModuleIdFactory,
+  processModuleFilter,
+} = require('./compile/metro-base');
 
 module.exports = {
   serializer: {
-    createModuleIdFactory: metroCfg.createModuleIdFactory,
-    processModuleFilter: metroCfg.processModuleFilter('BUSINESS'),
+    createModuleIdFactory: createModuleIdFactory,
+    processModuleFilter: processModuleFilter(),
   },
   transformer: {
     getTransformOptions: async () => ({

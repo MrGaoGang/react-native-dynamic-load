@@ -11,37 +11,21 @@ react-native dynamic load bundle from remote;(单例模式 React Native 分包�
 
 ### 分包
 
-将`polyfill`和`node_modules`部分内置到客户端`base.ios.bundle`,其余的业务逻辑为`buss.ios.bundle`。此处可以根据自己的个性需求选择那些需要内置。
+将自己需要打入到公共包里面的模块，填写到`common-entry.js`中;
 
-```js
-function processModuleFilter(type) {
-  return module => {
-    if (type === 'ALL') {
-      return true;
-    } else if (type === 'BASE') {
-      const projectName = __dirname.substr(__dirname.lastIndexOf('/') + 1);
-      if (module.path.indexOf('__prelude__') !== -1) {
-        return true;
-      }
-      if (module.path.indexOf(`${projectName}/node_modules`) !== -1) {
-        return true;
-      } else {
-        return false;
-      }
-    } else if (type === 'BUSINESS') {
-      const projectName = __dirname.substr(__dirname.lastIndexOf('/') + 1);
-      if (module.path.indexOf('__prelude__') !== -1) {
-        return false;
-      }
-      if (module.path.indexOf(`${projectName}/node_modules`) !== -1) {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  };
-}
+```bash
+
+# ios运行
+
+npm run build:ios
+
+# android运行
+
+npm run build:android
+
 ```
+
+会自动进行分包，如果想要打包后的产物为数字类型，则在`compile/metro-base.js`中设置`moduleIdByIndex=true`即可
 
 ### iOS 客户端动态加载
 
