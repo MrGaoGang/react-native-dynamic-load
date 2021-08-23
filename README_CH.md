@@ -4,8 +4,8 @@ react-native dynamic load bundle from remote;(单例模式 React Native 分包�
 
 ## Support
 
-- iOS 动态加载 jsbundle/common bundle;
-- iOS 支持多 bundle 同时加载
+- iOS/Android 动态加载 jsbundle/common bundle;
+- iOS/Android 支持多 bundle 同时加载
 
 ## 实现逻辑
 
